@@ -1,13 +1,17 @@
 # Jbin Website Secret Scraper (Python)
 
+Here is the online demo : <a href="https://jbin-scraper.herokuapp.com/">Jbin</a>
+
 Jbin will gather all the URLs from the website and then it will try to expose the secret data from them. It collects both URLs and JS links to scrape secrets out of it.
 
 # Installation
 1. Install flask ``` pip install Flask ```
-2. Now set the environment variables ```export FLASK_APP=main.py``` and ```export FLASK_ENV=debug```
+2. Now set the environment variables ```export FLASK_APP=wsgi.py``` and ```export FLASK_ENV=debug```
 3. Now you can just run the application ```flask run```
 
 [Note]: Make sure you verify that flask is installed ```flask --version```
+
+
 
 # Usage
 
