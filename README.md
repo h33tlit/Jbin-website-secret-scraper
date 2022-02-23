@@ -1,4 +1,4 @@
-# Jbin Website Scraper (Python)
+# Jbin Website Secret Scraper (Python)
 
 Jbin will gather all the URLs from the website and then it will try to expose the secret data from them. It collects both URLs and JS links to scrape secrets out of it.
 
