@@ -1,0 +1,103 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %}
+
+<!-- Specific Plugin CSS goes HERE -->
+{% block plugin_stylesheets %}
+
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="/static/assets/vendors/jvectormap/jquery-jvectormap.css">
+  <link rel="stylesheet" href="/static/assets/vendors/flag-icon-css/css/flag-icon.min.css">
+  <link rel="stylesheet" href="/static/assets/vendors/owl-carousel-2/owl.carousel.min.css">
+  <link rel="stylesheet" href="/static/assets/vendors/owl-carousel-2/owl.theme.default.min.css">
+
+{% endblock plugin_stylesheets %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+
+
+          <div class="content-wrapper">
+            <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Website Secret Scraper</h4>
+              <p class="card-description"> This will first gather all the URLs from the website and then try to access their
+              unique links and js scripts to expose secret information.</p>
+
+              <form class="forms-sample" method="POST" action="{{ url_for('scan') }}" enctype="multipart/form-data">
+
+                <div class="col-sm-9">
+                  <label>Domain (e.g: https://test.com)</label>
+                  <input type="text" class="form-control" name="domain" size="3" placeholder="Insert Domain">
+                  <br/>
+
+
+                  <select class="btn btn-secondary dropdown-toggle" type="button" name="regex">
+                  <option value="0" SELECTED>Google API</option>
+                  <option value="1" SELECTED>Artifactory API</option>
+                  <option value="2" SELECTED>Artifactory Pass</option>
+                    <option value="3" SELECTED>Auth Tokens</option>
+                     <option value="4" SELECTED>AWS Client ID</option>
+                     <option value="5" SELECTED>AWS Keys</option>
+                     <option value="6" SELECTED>AWS Secret Keys</option>
+                     <option value="7" SELECTED>Base 64</option>
+                     <option value="8" SELECTED>Basic Auth Credentials</option>
+                    <option value="9" SELECTED>Cloudanary Basic Auth Tokens</option>
+                    <option value="10" SELECTED>Facebook Access Tokens</option>
+                    <option value="11" SELECTED>Facebook Client ID</option>
+                    <option value="12" SELECTED>Facebook Oauth Tokens</option>
+                    <option value="13" SELECTED>Facebook Secret Key</option>
+                    <option value="14" SELECTED>Github Secrets</option>
+                    <option value="15" SELECTED>Google Cloud Tokens</option>
+                    <option value="16" SELECTED>Google Oauth Tokens</option>
+                    <option value="17" SELECTED>Youtube Oauth Tokens</option>
+                    <option value="18" SELECTED>Heroku API Keys</option>
+                    <option value="19" SELECTED>IPV4</option>
+                    <option value="20" SELECTED>IPV6</option>
+                    <option value="21" SELECTED>URL Without http</option>
+                    <option value="22" SELECTED>URL With http</option>
+                  </select>
+
+                <button type="submit" class="btn btn-danger btn-fw">Submit</button>
+
+
+
+
+
+                  </div>
+              </form>
+            </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}
+
+<!-- Specific Plugin JS goes HERE  -->
+{% block plugin_javascripts %}
+
+  <script src="/static/assets/vendors/chart.js/Chart.min.js"></script>
+  <script src="/static/assets/vendors/progressbar.js/progressbar.min.js"></script>
+  <script src="/static/assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+  <script src="/static/assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+  <script src="/static/assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
+
+{% endblock plugin_javascripts %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+  <script src="/static/assets/js/dashboard.js"></script>
+
+{% endblock javascripts %}
