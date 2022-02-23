@@ -8,7 +8,6 @@ import re
 app = Flask(__name__)
 
 
-
 @app.route('/', methods=['POST', 'GET'])
 def scan():
     if request.method == 'GET':
@@ -152,6 +151,15 @@ def scan():
 
 
         return render_template("home/scan.html",  finalurls=finalurls, finalscrapinglinkcount=finalscrapinglinkcount, dataformat=dataformat, goodurls=goodurls, badurls=badurls, allurllist=allurllist, resultdomain=domain_name, internallink=internallink)
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('home/error.html'), 404
+
+@app.errorhandler(500)
+def page_not_found(e):
+    return render_template('home/error.html'), 500
 
 
 if __name__ == "__main__":

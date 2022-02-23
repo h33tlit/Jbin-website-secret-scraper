@@ -1,0 +1,61 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %}
+
+<!-- Specific Plugin CSS goes HERE -->
+{% block plugin_stylesheets %}
+
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="/static/assets/vendors/jvectormap/jquery-jvectormap.css">
+  <link rel="stylesheet" href="/static/assets/vendors/flag-icon-css/css/flag-icon.min.css">
+  <link rel="stylesheet" href="/static/assets/vendors/owl-carousel-2/owl.carousel.min.css">
+  <link rel="stylesheet" href="/static/assets/vendors/owl-carousel-2/owl.theme.default.min.css">
+
+{% endblock plugin_stylesheets %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+
+
+          <div class="content-wrapper">
+            <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">ERROR</h4>
+              <p class="card-description">Did you put the target in correct order like this: <code>https://test.com</code> ?</p>
+              <p class="card-description">Check the target if its blocked or unaccessible.</p>
+              <p class="card-description">Check the logs if you find any errors please report it <a href="https://github.com/h33tlit/Jbin-website-secret-scraper/issues">here.</a></p>
+            </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}
+
+<!-- Specific Plugin JS goes HERE  -->
+{% block plugin_javascripts %}
+
+  <script src="/static/assets/vendors/chart.js/Chart.min.js"></script>
+  <script src="/static/assets/vendors/progressbar.js/progressbar.min.js"></script>
+  <script src="/static/assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+  <script src="/static/assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+  <script src="/static/assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
+
+{% endblock plugin_javascripts %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+  <script src="/static/assets/js/dashboard.js"></script>
+
+{% endblock javascripts %}
