@@ -8,16 +8,16 @@ import re
 app = Flask(__name__)
 
 
+
 @app.route('/', methods=['POST', 'GET'])
 def scan():
     if request.method == 'GET':
         return render_template("home/scan-empty.html")
     elif request.method == 'POST':
-        global url
         url = request.form["domain"]
         page = requests.get(url)
         soup = BeautifulSoup(page.text, 'html.parser')
-        domain_name = urlparse(url).netloc
+        domain_name = urlparse(url).hostname
 
         save = []
         secondlayer = set()
@@ -54,6 +54,7 @@ def scan():
         counter2 = 0
         combinedurls = []
 
+        internallink = 0
         for list in secondlayer:
             try:
                 if 'http' in list:
@@ -64,9 +65,10 @@ def scan():
                     soup = BeautifulSoup(scan.text, "html.parser")
                     # going into each internal weblinks and getting the js script links
                     src = [sc["src"] for sc in soup.select("script[src]")]
+
                 if len(src) > 1:
-                    global internallink
-                    internallink = len(src)
+
+                    internallink += 1
 
                     # constructing the paths
                     for checkdomainlist in src:
@@ -149,7 +151,7 @@ def scan():
             finalurls.append(splitdata)
 
 
-        return render_template("home/scan.html",  finalurls=finalurls, finalscrapinglinkcount=finalscrapinglinkcount, dataformat=dataformat, goodurls=goodurls, badurls=badurls, allurllist=allurllist, resultdomain=resultdomain, internallink=internallink)
+        return render_template("home/scan.html",  finalurls=finalurls, finalscrapinglinkcount=finalscrapinglinkcount, dataformat=dataformat, goodurls=goodurls, badurls=badurls, allurllist=allurllist, resultdomain=domain_name, internallink=internallink)
 
 
 if __name__ == "__main__":
