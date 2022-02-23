@@ -1,6 +1,7 @@
 # Jbin Website Secret Scraper (Python)
 
-Here is the online demo : <a href="https://jbin-scraper.herokuapp.com/">Jbin</a>
+
+Here is the online demo : <a href="https://jbin-scraper.herokuapp.com/">Jbin</a> ( This might crash because heroku doesn't supply much computing power, try it locally )
 
 Jbin will gather all the URLs from the website and then it will try to expose the secret data from them. It collects both URLs and JS links to scrape secrets out of it.
 
