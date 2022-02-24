@@ -24,6 +24,52 @@ Enter your target domain and select the regex which will scrape out the secrets.
 <img width="1194" alt="Screenshot 2022-02-23 at 11 57 06 PM" src="https://user-images.githubusercontent.com/97327489/155356609-40bc7933-8bc2-4a06-a20a-dc04542e0dfe.png">
 
 Currently we are scraping these secrets:
+
+
+<select class="btn btn-secondary dropdown-toggle" type="button" name="regex">
+                  <option value="0" SELECTED>Google API</option>
+                  <option value="1" SELECTED>Artifactory API</option>
+                  <option value="2" SELECTED>Artifactory Pass</option>
+                    <option value="3" SELECTED>Auth Tokens</option>
+                     <option value="4" SELECTED>AWS Access Keys</option>
+                     <option value="5" SELECTED>AWS MWS Auth Token</option>
+                     <option value="6" SELECTED>Base 64</option>
+                     <option value="7" SELECTED>Basic Auth Credentials</option>
+                    <option value="8" SELECTED>Cloudanary Basic Auth Tokens</option>
+                    <option value="9" SELECTED>Facebook Access Tokens</option>
+                    <option value="10" SELECTED>Facebook Oauth Tokens</option>
+                    <option value="11" SELECTED>Github Secrets</option>
+                    <option value="12" SELECTED>Google Cloud API</option>
+                    <option value="13" SELECTED>Google Oauth Tokens</option>
+                    <option value="14" SELECTED>Youtube Oauth Tokens</option>
+                    <option value="15" SELECTED>Heroku API Keys</option>
+                    <option value="16" SELECTED>IPV4</option>
+                    <option value="17" SELECTED>IPV6</option>
+                    <option value="18" SELECTED>URL Without http</option>
+                    <option value="19" SELECTED>URL With http</option>
+                    <option value="20" SELECTED>Generic API</option>
+                    <option value="21" SELECTED>RSA Private Keys</option>
+                    <option value="22" SELECTED>PGP Private Keys</option>
+                    <option value="23" SELECTED>Mailchamp API key</option>
+                    <option value="24" SELECTED>Mailgun API key</option>
+                    <option value="25" SELECTED>Picatic API</option>
+                    <option value="26" SELECTED>Slack Token</option>
+                    <option value="27" SELECTED>Slack Webhook</option>
+                    <option value="28" SELECTED>Stripe API Keys</option>
+                    <option value="29" SELECTED>Square Access Token</option>
+                    <option value="30" SELECTED>Square Oauth Secret</option>
+                    <option value="31" SELECTED>Twilio API key</option>
+                    <option value="32" SELECTED>Twitter Cliend ID</option>
+                    <option value="33" SELECTED>Twitter Oauth</option>
+                    <option value="34" SELECTED>Twitter Secret Keys</option>
+                    <option value="35" SELECTED>Vault Token</option>
+                    <option value="36" SELECTED>Firebase Secrets</option>
+                    <option value="37" SELECTED>Paypal Braintree Tokens</option>
+                  </select>
+
+
+
+
 ```
 Google API
 Artifactory API
