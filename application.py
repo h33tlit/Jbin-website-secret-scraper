@@ -13,13 +13,16 @@ def scan():
     if request.method == 'GET':
         return render_template("home/scan-empty.html")
     elif request.method == 'POST':
+        combinedurls = []
         url = request.form["domain"]
         page = requests.get(url)
+        combinedurls.append(url)
         soup = BeautifulSoup(page.text, 'html.parser')
         domain_name = urlparse(url).hostname
 
         save = []
         secondlayer = set()
+
 
         for a_tag in soup.findAll("a"):
             href = a_tag.attrs.get("href")
@@ -31,6 +34,7 @@ def scan():
             if domain_name in href:
                 if 'http' in href:
                     save.append(href)
+                    combinedurls.append(href)
 
         for intilink in save:
             if 'http' in intilink:
@@ -48,10 +52,12 @@ def scan():
                 if domain_name in href2:
                     if 'http' in href2:
                         secondlayer.add(href2)
+                        combinedurls.append(href2)
+
 
         counter1 = 0
         counter2 = 0
-        combinedurls = []
+
 
         internallink = 0
         for list in secondlayer:
@@ -106,28 +112,51 @@ def scan():
         authbasic = """basic [a-zA-Z0-9_\\-:\\.=]+"""
         awsclient = """(A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}"""
         awsmwskey = """amzn\.mws\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"""
-        awssecret = """(?i)aws(.{0,20})?(?-i)['\"][0-9a-zA-Z\/+]{40}['\"]"""
         base64 = """(eyJ|YTo|Tzo|PD[89]|aHR0cHM6L|aHR0cDo|rO0)[a-zA-Z0-9+/]+={0,2}"""
         basicauthcred = """(?<=:\/\/)[a-zA-Z0-9]+:[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]+"""
         cloudanarybasicauth = """cloudinary:\/\/[0-9]{15}:[0-9A-Za-z]+@[a-z]+"""
         fbaccesstoken = """EAACEdEose0cBA[0-9A-Za-z]+"""
-        fbclientid = """(?i)(facebook|fb)(.{0,20})?['\"][0-9]{13,17}"""
         fboauth = """[f|F][a|A][c|C][e|E][b|B][o|O][o|O][k|K].*['|\"][0-9a-f]{32}['|\"]"""
-        fbsecretkey = """(?i)(facebook|fb)(.{0,20})?(?-i)['\"][0-9a-f]{32}"""
-        github = """(?i)github(.{0,20})?(?-i)['\"][0-9a-zA-Z]{35,40}"""
-        googlecloud = """(?i)(google|gcp|youtube|drive|yt)(.{0,20})?['\"][AIza[0-9a-z\\-_]{35}]['\"]"""
+        github = """[g|G][i|I][t|T][h|H][u|U][b|B].*['|\"][0-9a-zA-Z]{35,40}['|\"]"""
+        googlecloud = """AIza[0-9A-Za-z\\-_]{35}"""
         googleoauth = """ya29\\.[0-9A-Za-z\\-_]+"""
         googleyoutubeoauth = """[0-9]+-[0-9A-Za-z_]{32}\.apps\.googleusercontent\\.com"""
         herokuapi = """[h|H][e|E][r|R][o|O][k|K][u|U].{0,30}[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}"""
-        ipv4 = """\b(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}\b"""
+        ipv4 = """\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}"""
         ipv6 = """(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))"""
         urlshttp = """https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)"""
         urlwithout = """[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)"""
+        genericapi = """[a|A][p|P][i|I][_]?[k|K][e|E][y|Y].*['|\"][0-9a-zA-Z]{32,45}['|\"]"""
+        rsaprivatekey = """-----BEGIN RSA PRIVATE KEY-----"""
+        pgpprivatekey = """-----BEGIN PGP PRIVATE KEY BLOCK-----"""
+        mailchampapikey = """[0-9a-f]{32}-us[0-9]{1,2}"""
+        mailgunapikey = """key-[0-9a-zA-Z]{32}"""
+        picaticapikey = """sk_live_[0-9a-z]{32}"""
+        slacktoken = """xox[baprs]-([0-9a-zA-Z]{10,48})?"""
+        slackwebhook = """https://hooks.slack.com/services/T[a-zA-Z0-9_]{10}/B[a-zA-Z0-9_]{10}/[a-zA-Z0-9_]{24}"""
+        stripeapikey = """sk_live_[0-9a-zA-Z]{24}"""
+        squareaccesstoken = """sqOatp-[0-9A-Za-z\\-_]{22}"""
+        squareoauthsecret = """sq0csp-[ 0-9A-Za-z\\-_]{43}"""
+        twilioapikey = """SK[0-9a-fA-F]{32}"""
+        twitterclientid = """(?i)twitter(.{0,20})?['\"][0-9a-z]{18,25}"""
+        twitteroauth = """[t|T][w|W][i|I][t|T][t|T][e|E][r|R].{0,30}['\"\\s][0-9a-zA-Z]{35,44}['\"\\s]"""
+        twittersecretkey = """[t|T][w|W][i|I][t|T][t|T][e|E][r|R].*[1-9][0-9]+-[0-9a-zA-Z]{40}"""
+        vaulttoken = """[sb]\.[a-zA-Z0-9]{24}"""
+        firebase = """.*firebaseio\.com"""
+        braintree = """access_token\\$production\\$[0-9a-z]{16}\\$[0-9a-f]{32}"""
 
-        regex = [google_api, artifactory, artifactorypass, authbasic, awsclient, awsmwskey, re.escape(awssecret),
-                 base64, basicauthcred, cloudanarybasicauth, fbaccesstoken, fbclientid, fboauth, re.escape(fbsecretkey),
-                 re.escape(github), re.escape(googlecloud), re.escape(googleoauth), re.escape(googleyoutubeoauth),
-                 re.escape(herokuapi), re.escape(ipv4), re.escape(ipv6), re.escape(urlwithout), re.escape(urlshttp)]
+
+
+
+        regex = [google_api, artifactory, artifactorypass, authbasic, awsclient, awsmwskey,
+                 base64, basicauthcred, cloudanarybasicauth, fbaccesstoken, fboauth,
+                 github, googlecloud, googleoauth, googleyoutubeoauth,
+                 herokuapi, ipv4, ipv6, urlwithout, urlshttp,
+                 genericapi, rsaprivatekey, pgpprivatekey, mailchampapikey,
+                 mailgunapikey, picaticapikey, slacktoken,
+                 slackwebhook, stripeapikey, squareaccesstoken, squareoauthsecret,
+                 twilioapikey, twitterclientid, twitteroauth, twittersecretkey,
+                 vaulttoken, firebase, braintree]
 
         finaldata = []
 
