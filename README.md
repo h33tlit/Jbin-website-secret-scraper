@@ -14,6 +14,12 @@ Jbin will gather all the URLs from the website and then it will try to expose th
 
 
 
+# Testing
+
+Url: https://peaceful-colden-270bad.netlify.app
+
+*Copy the url and put it to the tool, Select AWS Keys/IPV4/IPV6 from the options and verify it's capabilities*
+
 # Usage
 
 Now go to ```http://127.0.0.1:5000/``` where by default the application will be launched but if that port is in used you can run this ```flask run --host=127.0.0.1 --port=ANY PORT NUMBER```
