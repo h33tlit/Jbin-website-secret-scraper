@@ -34,7 +34,7 @@ AWS Secret Keys
 AWS Keys
 Base 64 Data
 Basic Auth Credentials
-Cloudanary Basic Auth Tokens
+Cloudinary Basic Auth Tokens
 Facebook Access Tokens, Client ID, Oauth Tokens and Secret keys
 Github Secrets
 Google Cloud Tokens, Oauth Tokens
