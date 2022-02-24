@@ -16,7 +16,7 @@ Jbin will gather all the URLs from the website and then it will try to expose th
 
 # Usage
 
-Now go to ```http://127.0.0.1:5000/``` where by default the application will be launched but if that port is in used you can run this ```flask run --port=ANY PORT NUMBER```
+Now go to ```http://127.0.0.1:5000/``` where by default the application will be launched but if that port is in used you can run this ```flask run --host=127.0.0.1 --port=ANY PORT NUMBER```
 
 
 Enter your target domain and select the regex which will scrape out the secrets.
@@ -34,7 +34,7 @@ AWS Secret Keys
 AWS Keys
 Base 64 Data
 Basic Auth Credentials
-Cloudanary Basic Auth Tokens
+Cloudinary Basic Auth Tokens
 Facebook Access Tokens, Client ID, Oauth Tokens and Secret keys
 Github Secrets
 Google Cloud Tokens, Oauth Tokens
