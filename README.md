@@ -25,71 +25,45 @@ Enter your target domain and select the regex which will scrape out the secrets.
 
 Currently we are scraping these secrets:
 
-
-<select class="btn btn-secondary dropdown-toggle" type="button" name="regex">
-                  <option value="0" SELECTED>Google API</option>
-                  <option value="1" SELECTED>Artifactory API</option>
-                  <option value="2" SELECTED>Artifactory Pass</option>
-                    <option value="3" SELECTED>Auth Tokens</option>
-                     <option value="4" SELECTED>AWS Access Keys</option>
-                     <option value="5" SELECTED>AWS MWS Auth Token</option>
-                     <option value="6" SELECTED>Base 64</option>
-                     <option value="7" SELECTED>Basic Auth Credentials</option>
-                    <option value="8" SELECTED>Cloudanary Basic Auth Tokens</option>
-                    <option value="9" SELECTED>Facebook Access Tokens</option>
-                    <option value="10" SELECTED>Facebook Oauth Tokens</option>
-                    <option value="11" SELECTED>Github Secrets</option>
-                    <option value="12" SELECTED>Google Cloud API</option>
-                    <option value="13" SELECTED>Google Oauth Tokens</option>
-                    <option value="14" SELECTED>Youtube Oauth Tokens</option>
-                    <option value="15" SELECTED>Heroku API Keys</option>
-                    <option value="16" SELECTED>IPV4</option>
-                    <option value="17" SELECTED>IPV6</option>
-                    <option value="18" SELECTED>URL Without http</option>
-                    <option value="19" SELECTED>URL With http</option>
-                    <option value="20" SELECTED>Generic API</option>
-                    <option value="21" SELECTED>RSA Private Keys</option>
-                    <option value="22" SELECTED>PGP Private Keys</option>
-                    <option value="23" SELECTED>Mailchamp API key</option>
-                    <option value="24" SELECTED>Mailgun API key</option>
-                    <option value="25" SELECTED>Picatic API</option>
-                    <option value="26" SELECTED>Slack Token</option>
-                    <option value="27" SELECTED>Slack Webhook</option>
-                    <option value="28" SELECTED>Stripe API Keys</option>
-                    <option value="29" SELECTED>Square Access Token</option>
-                    <option value="30" SELECTED>Square Oauth Secret</option>
-                    <option value="31" SELECTED>Twilio API key</option>
-                    <option value="32" SELECTED>Twitter Cliend ID</option>
-                    <option value="33" SELECTED>Twitter Oauth</option>
-                    <option value="34" SELECTED>Twitter Secret Keys</option>
-                    <option value="35" SELECTED>Vault Token</option>
-                    <option value="36" SELECTED>Firebase Secrets</option>
-                    <option value="37" SELECTED>Paypal Braintree Tokens</option>
-                  </select>
-
-
-
-
 ```
-Google API
-Artifactory API
-Artifactory Pass
-Auth Tokens
-AWS Client ID
-AWS Secret Keys
-AWS Keys
-Base 64 Data
-Basic Auth Credentials
-Cloudinary Basic Auth Tokens
-Facebook Access Tokens, Client ID, Oauth Tokens and Secret keys
-Github Secrets
-Google Cloud Tokens, Oauth Tokens
-Youtube Oauth Tokens
-Heroku API
-IPV4
-IPV6
-URL without http
-URL with http
+ Google Maps API 
+ Artifactory API 
+ Artifactory Pass 
+ Auth Tokens 
+ AWS Access Keys 
+ AWS MWS Auth Token 
+ Base 64 
+ Basic Auth Credentials 
+ Cloudanary Basic Auth Tokens 
+ Facebook Access Tokens 
+ Facebook Oauth Tokens 
+ Github Secrets 
+ Google Cloud API 
+ Google Oauth Tokens 
+ Youtube Oauth Tokens 
+ Heroku API Keys 
+ IPV4 
+ IPV6 
+ URL Without http 
+ URL With http 
+ Generic API 
+ RSA Private Keys 
+ PGP Private Keys 
+ Mailchamp API key 
+ Mailgun API key 
+ Picatic API 
+ Slack Token 
+ Slack Webhook 
+ Stripe API Keys 
+ Square Access Token 
+ Square Oauth Secret 
+ Twilio API key 
+ Twitter Client ID 
+ Twitter Oauth 
+ Twitter Secret Keys 
+ Vault Token 
+ Firebase Secrets 
+ Paypal Braintree Tokens 
 
 ```
 The result will be like this:
