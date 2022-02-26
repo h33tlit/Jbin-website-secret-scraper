@@ -4,14 +4,28 @@
         </div>
         <ul class="nav">
           <li class="nav-item nav-category">
-            <span class="nav-link">Version 1.0</span>
+            <span class="nav-link">Version 1.1</span>
           </li>
             <li class="nav-item menu-items active">
             <a class="nav-link" href="/">
-              <span class="menu-icon">
-                <i class="mdi mdi-speedometer"></i>
+                <span class="menu-icon">
+                    {% if count is not defined %}
+                    <code>0</code>
+                    {% elif count is defined %}
+                    <code>{{ count - 2 }}</code>
+                    {% endif %}
               </span>
-              <span class="menu-title">Dashboard</span>
+              <span class="menu-title">Dashboard  </span>
+
+            </a>
+            </li>
+            <br/>
+            <li class="nav-item menu-items active">
+            <a class="nav-link" href="/reports">
+              <span class="menu-icon">
+                <i class="mdi mdi-clipboard-text"></i>
+              </span>
+              <span class="menu-title">Reports</span>
             </a>
             </li>
 
