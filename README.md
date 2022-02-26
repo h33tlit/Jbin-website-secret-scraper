@@ -1,9 +1,9 @@
-# Jbin Website Secret Scraper (Python)
+# Jbin Website Secret Scraper V1.1 (Python)
 
 
 Here is the online demo : <a href="https://jbin-scraper.herokuapp.com/">Jbin</a> ( This might crash because heroku doesn't supply much computing power, try it locally )
 
-Jbin will gather all the URLs from the website and then it will try to expose the secret data from them. It collects both URLs and JS links to scrape secrets out of it.
+Jbin will gather all the URLs from the website and then it will try to expose the secret data from them. It collects both URLs and JS links to scrape secrets out of it. Also if you are looking for a specific string in a page or want to run custom regex then you can do that too now with the new release V1.1, It also provides you with a informative excel report.
 
 # Installation
 1. Install flask ``` pip install Flask ```
@@ -25,9 +25,12 @@ Url: https://peaceful-colden-270bad.netlify.app
 Now go to ```http://127.0.0.1:5000/``` where by default the application will be launched but if that port is in used you can run this ```flask run --host=127.0.0.1 --port=ANY PORT NUMBER```
 
 
-Enter your target domain and select the regex which will scrape out the secrets.
+Enter your target domain and put your custom regex or string, You can run all the existing scans if you keep the Regex/String field empty.
 
-<img width="1194" alt="Screenshot 2022-02-23 at 11 57 06 PM" src="https://user-images.githubusercontent.com/97327489/155356609-40bc7933-8bc2-4a06-a20a-dc04542e0dfe.png">
+
+<img width="1437" alt="Screenshot 2022-02-27 at 4 49 29 AM" src="https://user-images.githubusercontent.com/97327489/155858667-1966516c-c191-405d-86b5-4012af7c89ae.png">
+
+
 
 Currently we are scraping these secrets:
 
@@ -72,11 +75,10 @@ Currently we are scraping these secrets:
  Paypal Braintree Tokens 
 
 ```
-The result will be like this:
-<img width="1196" alt="Screenshot 2022-02-24 at 12 05 46 AM" src="https://user-images.githubusercontent.com/97327489/155358392-06a7b50d-cf4a-4457-93b2-d898f474f390.png">
+The result will be like this and you can download the excel to find all the organized links and secrets:
 
-If we find a valid secret it will show like this:
-<img width="1098" alt="Screenshot 2022-02-24 at 12 11 51 AM" src="https://user-images.githubusercontent.com/97327489/155359593-752bacb0-b4a8-4ecf-bd85-a5b54795ba28.png">
+
+<img width="1440" alt="Screenshot 2022-02-27 at 4 50 22 AM" src="https://user-images.githubusercontent.com/97327489/155858685-92b81935-7ed3-4b41-9778-582aa9dee5f6.png">
 
 
 
