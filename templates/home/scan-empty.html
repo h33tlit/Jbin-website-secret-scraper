@@ -173,11 +173,11 @@ a {
             </div>
             </div>
 
-              {% if count > 2 %}
+              {% if count > 0 %}
                   <br/>
                   <button class="btn btn-dark btn-fw" type="button" disabled>
                   <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                  Loading... <code>{{ count - 2 }}</code> tasks!
+                  Loading... <code>{{ count }}</code> tasks!
                   </button>
                   <br/>
                   <meta http-equiv="refresh" content="10">
