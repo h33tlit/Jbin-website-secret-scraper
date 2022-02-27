@@ -7,8 +7,9 @@ Jbin will gather all the URLs from the website and then it will try to expose th
 
 # Installation
 1. Install flask ``` pip install Flask ```
-2. Now set the environment variables ```export FLASK_APP=wsgi.py``` and ```export FLASK_ENV=debug```
-3. Now you can just run the application ```flask run```
+2. Install the requirements ```pip install -r requirements.txt```
+3. Now set the environment variables ```export FLASK_APP=wsgi.py``` and ```export FLASK_ENV=debug```
+4. Now you can just run the application ```flask run```
 
 [Note]: Make sure you verify that flask is installed ```flask --version```
 
