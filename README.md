@@ -6,6 +6,8 @@ Here is the online demo : <a href="https://jbin-scraper.herokuapp.com/">Jbin</a>
 Jbin will gather all the URLs from the website and then it will try to expose the secret data from them. It collects both URLs and JS links to scrape secrets out of it. Also if you are looking for a specific string in a page or want to run custom regex then you can do that too now with the new release V1.1, It also provides you with a informative excel report.
 
 # Installation
+Required: Python-3.8.5, Flask
+
 1. Install flask ``` pip install Flask ```
 2. Install the requirements ```pip install -r requirements.txt```
 3. Now set the environment variables ```export FLASK_APP=wsgi.py``` and ```export FLASK_ENV=debug```
