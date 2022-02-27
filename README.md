@@ -18,7 +18,7 @@ Jbin will gather all the URLs from the website and then it will try to expose th
 
 Url: https://peaceful-colden-270bad.netlify.app
 
-*Copy the url and put it to the tool, Select AWS Keys/IPV4/IPV6 from the options and verify it's capabilities*
+*Copy the url and put this as a target in the tool, Select AWS Keys/IPV4/IPV6 from the options and verify it's capabilities*
 
 # Usage
 
