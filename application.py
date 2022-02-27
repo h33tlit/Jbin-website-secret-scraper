@@ -6,7 +6,7 @@ from flask import request
 from bs4 import BeautifulSoup
 import re
 from threading import Thread
-from flask import Flask, render_template, Response
+from flask import Flask, render_template, Response, request
 import xlsxwriter
 import os
 import glob
@@ -20,13 +20,14 @@ os.chdir("reports")
 @app.route('/', methods=['POST', 'GET'])
 def scan():
     if request.method == 'GET':
-        return render_template("home/scan-empty.html", count=threading.active_count())
+        host = request.host
+        return render_template("home/scan-empty.html", count=threading.active_count(), host=host)
     elif request.method == 'POST':
         url = request.form["domain"]
         regexselect = request.form["regex"]
         th = Thread(target=task, args=(url,regexselect))
         th.start()
-    return render_template("home/scan-empty.html", count=threading.active_count())
+    return render_template("home/scan-empty.html", count=threading.active_count(), host=request.host)
 
 
 def task(url, regexselect):
@@ -239,6 +240,7 @@ def reports():
     for x in directory:
         y = x.split(',')
         alldata.append(y)
+
 
     return render_template('home/reports.html', count=threading.active_count(), alldata=alldata)
 

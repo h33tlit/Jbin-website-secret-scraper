@@ -172,23 +172,44 @@ a {
               </form>
             </div>
             </div>
+                {% if '127.0.0.1' in host %}
 
-              {% if count > 1 %}
-                  <br/>
-                  <button class="btn btn-dark btn-fw" type="button" disabled>
-                  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                  Loading... <code>{{ count }}</code> tasks!
-                  </button>
-                  <br/>
-                  <meta http-equiv="refresh" content="10">
-                  {% else %}
-                  <br/>
-                  <button class="btn btn-dark btn-fw" type="button" disabled>
-                    Currently, No task is running! You can check out your reports!
-                  </button>
-                  <br/>
+                    {% if count > 2 %}
+                      <br/>
+                      <button class="btn btn-dark btn-fw" type="button" disabled>
+                      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                      Loading... <code>{{ count - 2 }}</code> tasks!
+                      </button>
+                      <br/>
+                      <meta http-equiv="refresh" content="10">
+                      {% else %}
+                      <br/>
+                      <button class="btn btn-dark btn-fw" type="button" disabled>
+                        Currently, No task is running! You can check out your reports!
+                      </button>
+                      <br/>
 
-                  {% endif %}
+                    {% endif %}
+                {% else %}
+
+                    {% if count > 1 %}
+                      <br/>
+                      <button class="btn btn-dark btn-fw" type="button" disabled>
+                      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                      Loading... <code>{{ count - 1 }}</code> tasks!
+                      </button>
+                      <br/>
+                      <meta http-equiv="refresh" content="10">
+                      {% else %}
+                      <br/>
+                      <button class="btn btn-dark btn-fw" type="button" disabled>
+                        Currently, No task is running! You can check out your reports!
+                      </button>
+                      <br/>
+
+                    {% endif %}
+                {% endif %}
+
 
             <br/>
 
