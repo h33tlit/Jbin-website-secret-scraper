@@ -32,7 +32,7 @@ Enter your target domain and put your custom regex or string, You can run all th
 
 
 
-Currently we are scraping these secrets:
+Currently we are scraping these secrets by default if you keep the field empty for Regex/String:
 
 ```
  Google Maps API 
