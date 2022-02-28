@@ -29,10 +29,7 @@ Now go to ```http://127.0.0.1:5000/``` where by default the application will be 
 
 
 Enter your target domain and put your custom regex or string, You can run all the existing scans if you keep the Regex/String field empty.
-
-
-<img width="1437" alt="Screenshot 2022-02-27 at 4 49 29 AM" src="https://user-images.githubusercontent.com/97327489/155858667-1966516c-c191-405d-86b5-4012af7c89ae.png">
-
+![image](https://user-images.githubusercontent.com/97327489/155925531-391b641f-0454-4004-93b6-46ac20b8b828.png)
 
 
 Currently we are scraping these secrets by default if you keep the field empty for Regex/String:
@@ -79,13 +76,12 @@ Currently we are scraping these secrets by default if you keep the field empty f
 
 ```
 The result will be like this and you can download the excel to find all the organized links and secrets:
-
-
-<img width="1440" alt="Screenshot 2022-02-27 at 4 50 22 AM" src="https://user-images.githubusercontent.com/97327489/155858685-92b81935-7ed3-4b41-9778-582aa9dee5f6.png">
+![image](https://user-images.githubusercontent.com/97327489/155925624-88ff9f28-6fc9-40d0-9acd-faabfb4b7530.png)
 
 # Issues & Fixes
 
 1. You might notice that the loading bar is already appearing before you started running any tasks, Go to "Settings" and click on "Fix it" if you face this issue
+![image](https://user-images.githubusercontent.com/97327489/155925460-1fc24315-e5de-4734-aa8e-5a9fd83751f7.png)
 
 
 *Please do create <a href='https://github.com/h33tlit/Jbin-website-scraper/issues'>issues</a> if you face any error while using the application*
