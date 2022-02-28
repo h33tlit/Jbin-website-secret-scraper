@@ -19,15 +19,16 @@ os.chdir("reports")
 
 @app.route('/', methods=['POST', 'GET'])
 def scan():
+    f = open("count.json", "r")
+    preactivetasks = f.read()
     if request.method == 'GET':
-        host = request.host
-        return render_template("home/scan-empty.html", count=threading.active_count(), host=host)
+        return render_template("home/scan-empty.html", count=threading.active_count(), preactivetasks=int(preactivetasks))
     elif request.method == 'POST':
         url = request.form["domain"]
         regexselect = request.form["regex"]
         th = Thread(target=task, args=(url,regexselect))
         th.start()
-    return render_template("home/scan-empty.html", count=threading.active_count(), host=request.host)
+    return render_template("home/scan-empty.html", count=threading.active_count(), preactivetasks=int(preactivetasks))
 
 
 def task(url, regexselect):
@@ -243,6 +244,18 @@ def reports():
 
 
     return render_template('home/reports.html', count=threading.active_count(), alldata=alldata)
+
+
+@app.route('/settings', methods=['GET', 'POST'])
+def settings():
+    if request.method == 'POST':
+        counter = request.form['count']
+        f = open("count.json", "w")
+        f.write(counter)
+        f.close()
+    return render_template('home/settings.html', count=threading.active_count())
+
+
 
 
 @app.errorhandler(404)
