@@ -1,3 +1,4 @@
+import datetime
 import threading
 from urllib.parse import urlparse, urljoin
 import requests
@@ -11,24 +12,42 @@ import xlsxwriter
 import os
 import glob
 import pandas as pd
-
+import json
+import time
 
 app = Flask(__name__)
 os.chdir("reports")
-
+basedomain = set()
 
 @app.route('/', methods=['POST', 'GET'])
 def scan():
-    f = open("count.json", "r")
-    preactivetasks = f.read()
-    if request.method == 'GET':
-        return render_template("home/scan-empty.html", count=threading.active_count(), preactivetasks=int(preactivetasks))
-    elif request.method == 'POST':
+    if request.method == 'POST':
+        global url
         url = request.form["domain"]
+        basedomain.add(url)
         regexselect = request.form["regex"]
         th = Thread(target=task, args=(url,regexselect))
+        th.name = urlparse(url).hostname
         th.start()
-    return render_template("home/scan-empty.html", count=threading.active_count(), preactivetasks=int(preactivetasks))
+        thr = []
+        finalthread = []
+        for thread in threading.enumerate():
+            thr.append(thread.name)
+            for domain in thr:
+                if urlparse(url).hostname in domain:
+                    finalthread.append(domain)
+        return render_template("home/scan-empty.html", count=threading.active_count(), threadcount=len(finalthread))
+
+    elif request.method == 'GET':
+        thr = []
+        finalthread = []
+        for thread in threading.enumerate():
+            thr.append(thread.name)
+            for domain in thr:
+                for maindomain in set(basedomain):
+                    if urlparse(maindomain).hostname in domain:
+                        finalthread.append(domain)
+        return render_template("home/scan-empty.html", count=threading.active_count(), threadcount=len(finalthread))
 
 
 def task(url, regexselect):
@@ -194,7 +213,7 @@ def task(url, regexselect):
 
     for d in getwayback.text.split('\n'):
         combinedurls.append(d)
-    #####################################################################
+    #######################################################################
 
 
     #Regex matching
@@ -261,7 +280,7 @@ def reports():
         count = re.findall('Empty', str(data))
 
         directory.append('%s,%d,%d' % (dirs, len(data), len(count)))
-
+    #######
     for x in directory:
         y = x.split(',')
         alldata.append(y)
@@ -272,14 +291,9 @@ def reports():
 
 @app.route('/settings', methods=['GET', 'POST'])
 def settings():
-    if request.method == 'POST':
-        counter = request.form['count']
-        f = open("count.json", "w")
-        f.write(counter)
-        f.close()
     return render_template('home/settings.html', count=threading.active_count())
 
-@app.route('/settings/wordlist', methods=['GET', 'POST'])
+@app.route('/wordlist', methods=['GET', 'POST'])
 def wordlist():
     if request.method == 'GET':
         return render_template('home/settings.html', count=threading.active_count())
@@ -290,6 +304,40 @@ def wordlist():
         fd.close()
     return render_template('home/settings.html', count=threading.active_count())
 
+
+@app.route('/listen/<string:domain>')
+def listen(domain):
+    def respond_to_client():
+        while True:
+                global counter
+                thr = []
+                for thread in threading.enumerate():
+                    thr.append(thread.name)
+                    if domain in thr:
+                        doing = """<label class="badge badge-danger"><span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Running</label>"""
+                    else:
+                        doing = """<label class="badge badge-success">Finished</label>"""
+                _data = json.dumps({"process": doing})
+                yield f"id: 1\ndata: {_data}\nevent: online\n\n"
+                time.sleep(0.5)
+
+    return Response(respond_to_client(), mimetype='text/event-stream')
+
+
+@app.route('/list')
+def list():
+    thr = []
+    list = []
+    for thread in threading.enumerate():
+        thr.append(thread.name)
+        if 'MainThread' in thread.name:
+            pass
+        elif 'Thread' in thread.name:
+            pass
+        else:
+            list.append(thread.name)
+
+    return render_template('home/list.html', threadprocess=list)
 
 
 

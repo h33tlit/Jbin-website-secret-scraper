@@ -22,21 +22,6 @@
 
 
             <div class="content-wrapper">
-            <div class="card">
-            <div class="card-body">
-              <h4 class="card-title">Settings</h4>
-                <div class="content-wrapper">
-              <p class="card-description">If you are seeing that the loading bar is automatically loading without running any tasks then you should press the "Fix it" button to
-                  fix it!<br/><br/>
-              </p>
-              <form class="form-inline" method="POST" onsubmit="myFunction()" action="{{ url_for('settings') }}" enctype="multipart/form-data">
-
-                  <input type="hidden" name="count" value="{{ count }}"><br/>
-                <button type="submit" class="btn btn-danger btn-fw">Fix it</button>
-
-              </form>
-                </div>
-            </div>
 
 
                 <div class="card">
@@ -48,7 +33,7 @@
               <form method="POST" onsubmit="myAlert()" action="{{ url_for('wordlist') }}">
 
                   <textarea rows="4" cols="80" style="width:50%;height:200%" name="wordlist"></textarea><br/>
-                <br/><button type="submit" class="btn btn-danger btn-fw">Add</button>
+                <br/><button type="submit" class="btn btn-danger btn-fw">Fix it</button>
 
               </form>
                 </div>

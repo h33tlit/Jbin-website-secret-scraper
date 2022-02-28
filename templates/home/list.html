@@ -18,8 +18,6 @@
 
 
 {% block content %}
-
-
 <style>
 
 /*----------- Main Style ------*/
@@ -146,54 +144,53 @@ a {
 
 
 
-            <div class="content-wrapper">
-            <div class="card">
+    <div class="content-wrapper">
+          <div class="card">
             <div class="card-body">
-              <h4 class="card-title">Website Scraper</h4>
-              <p class="card-description">This will first gather all the URLs from the website and then try to access their unique links and js scripts to expose secret information.<br/><br/>
-                  <small>If you want the tool to scan all the existing regexes then keep the <font color="red">'Regex/String'</font> field empty and only insert domain!</small>
+              <h4 class="card-title">List of current tasks</h4>
+              <p class="card-description"> <code>You can view realtime progress of your tasks here!</code>
               </p>
-              <form class="form-inline" method="POST" action="{{ url_for('scan') }}" enctype="multipart/form-data">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Task</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for thread in threadprocess %}
+                    <tr>
+                      <td>{{ thread }}</td>
+                      <td>
+                          <label id="{{ loop.index }}"></label>
 
-                <label class="sr-only">Domain</label>
-                <input type="text" class="form-control mb-2 mr-sm-2" name="domain" placeholder="https://test.com">
-                <div class="input-group mb-2 mr-sm-2">
-                  <div class="input-group-prepend">
-                    <div class="input-group-text">Regex/String</div>
+                          <script>
+                              var eventSource = new EventSource("/listen/{{ thread }}")
 
-                  <input type="text" class="form-control" name="regex"><br/>
+                              eventSource.addEventListener("message", function(e) {
+                                console.log(e.data)
+                              }, false)
+
+                              eventSource.addEventListener("online", function(e) {
+                                // console.log(e.data.color)
+                                data = JSON.parse(e.data)
+                                document.getElementById('{{ loop.index }}').innerHTML = data.process;
+                              }, true)
+
+                          </script>
 
 
-                <button type="submit" class="btn btn-danger btn-fw">Submit</button>
-                    </div>
 
-                </div>
-
-
-              </form>
+                      </td>
+                    </tr>
+                  {% endfor %}
+                  </tbody>
+                </table>
+              </div>
             </div>
-            </div>
-
-                    {% if threadcount > 0  %}
-                      <br/>
-                      <button class="btn btn-dark btn-fw" type="button" disabled>
-                      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                      Loading... your tasks!
-                      </button>
-                      <br/>
-                      <meta http-equiv="refresh" content="10">
-                    {% else %}
-                      <br/>
-                      <button class="btn btn-dark btn-fw" type="button" disabled>
-                        Currently, No task is running! You can check out your reports!
-                      </button>
-                      <br/>
-
-                    {% endif %}
-
-
-            <br/>
-
+          </div>
+  </div>
 
 
 

@@ -1,10 +1,18 @@
-# Jbin Website Secret Scraper V1.2 (Python)
+# Jbin Website Secret Scraper V1.3 (Python)
 
 
 Here is the online demo : <a href="https://jbin-scraper.herokuapp.com/">Jbin</a> ( This might crash because heroku doesn't supply much computing power, try it locally )
 
 Jbin will gather all the URLs from the website and then it will try to expose the secret data from them. It collects both URLs and JS links to scrape secrets out of it. Also if you are looking for a specific string in a page or want to run custom regex then you can do that too now with the new release, It also provides you with a informative excel report.
 
+# How does it work?
+<img width="1345" alt="Screenshot 2022-03-01 at 3 59 35 AM" src="https://user-images.githubusercontent.com/97327489/156050326-48f38c29-1023-4e9a-b9db-ae7b4863c111.png">
+
+
+# New Features For V1.3?
+
+1. Directory bruteforce to get more URLs
+2. Custom wordlist
 
 # Third Party Components
 * Wayback API
