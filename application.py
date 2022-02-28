@@ -176,6 +176,19 @@ def task(url, regexselect):
              twilioapikey, twitterclientid, twitteroauth, twittersecretkey,
              vaulttoken, firebase, braintree]
 
+    #Using Directory Bruteforce
+    f = open('dir.txt', 'r')
+
+    domain = urlparse(url).hostname
+
+    for list in f.readlines():
+
+        resp = requests.get("https://" + str(domain) + "/" + str(list)).status_code
+        if resp == 200:
+            combinedurls.append("https://" + str(domain) + "/" + str(list))
+        else:
+            pass
+    f.close()
     #Taking extra URLs from archive.org
     getwayback = requests.get("http://web.archive.org/cdx/search/cdx?url=" + domain_name + "*&output=text&fl=original&collapse=urlkey&filter=statuscode%3A200")
 
@@ -264,6 +277,17 @@ def settings():
         f = open("count.json", "w")
         f.write(counter)
         f.close()
+    return render_template('home/settings.html', count=threading.active_count())
+
+@app.route('/settings/wordlist', methods=['GET', 'POST'])
+def wordlist():
+    if request.method == 'GET':
+        return render_template('home/settings.html', count=threading.active_count())
+    if request.method == 'POST':
+        wordlist = request.form['wordlist']
+        fd = open("dir.txt", "w")
+        fd.write(wordlist)
+        fd.close()
     return render_template('home/settings.html', count=threading.active_count())
 
 
