@@ -83,6 +83,9 @@ The result will be like this and you can download the excel to find all the orga
 
 <img width="1440" alt="Screenshot 2022-02-27 at 4 50 22 AM" src="https://user-images.githubusercontent.com/97327489/155858685-92b81935-7ed3-4b41-9778-582aa9dee5f6.png">
 
+# Issues & Fixes
+
+1. You might notice that the loading bar is already appearing before you started running any tasks, Go to "Settings" and click on "Fix it" if you face this issue
 
 
 *Please do create <a href='https://github.com/h33tlit/Jbin-website-scraper/issues'>issues</a> if you face any error while using the application*
