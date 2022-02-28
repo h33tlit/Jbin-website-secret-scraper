@@ -1,4 +1,4 @@
-# Jbin Website Secret Scraper V1.2 (Python)
+# Jbin Website Secret Scraper V1.3 (Python)
 
 
 Here is the online demo : <a href="https://jbin-scraper.herokuapp.com/">Jbin</a> ( This might crash because heroku doesn't supply much computing power, try it locally )
