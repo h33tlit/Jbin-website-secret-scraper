@@ -176,6 +176,16 @@ def task(url, regexselect):
              twilioapikey, twitterclientid, twitteroauth, twittersecretkey,
              vaulttoken, firebase, braintree]
 
+    #Taking extra URLs from archive.org
+    getwayback = requests.get("http://web.archive.org/cdx/search/cdx?url=" + domain_name + "*&output=text&fl=original&collapse=urlkey&filter=statuscode%3A200")
+
+    for d in getwayback.text.split('\n'):
+        combinedurls.append(d)
+    #####################################################################
+
+
+    #Regex matching
+
     finaldata = []
 
     for linkz in set(combinedurls):
@@ -200,11 +210,12 @@ def task(url, regexselect):
                 else:
                     finaldata.append("%s,%s" % (linkz, reg))
 
-
     finalurls = []
     for datanow in set(finaldata):
         splitdata = datanow.split(',')
         finalurls.append(splitdata)
+
+    #converting it to an excel report
 
     workbook = xlsxwriter.Workbook('%s.xlsx' % (urlparse(url).hostname))
     worksheet = workbook.add_worksheet()
