@@ -266,6 +266,17 @@ def settings():
         f.close()
     return render_template('home/settings.html', count=threading.active_count())
 
+@app.route('/settings/wordlist', methods=['GET', 'POST'])
+def wordlist():
+    if request.method == 'GET':
+        return render_template('home/settings.html', count=threading.active_count())
+    if request.method == 'POST':
+        wordlist = request.form['wordlist']
+        fd = open("dir.txt", "w")
+        fd.write(wordlist)
+        fd.close()
+    return render_template('home/settings.html', count=threading.active_count())
+
 
 
 
