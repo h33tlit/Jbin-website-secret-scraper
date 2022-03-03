@@ -332,7 +332,9 @@ def list():
         thr.append(thread.name)
         if 'MainThread' in thread.name:
             pass
-        elif 'Thread' in thread.name:
+        elif 'Thread-' in thread.name:
+            pass
+        elif 'ThreadPoolExecutor-' in thread.name:
             pass
         else:
             list.append(thread.name)
