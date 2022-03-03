@@ -95,8 +95,7 @@ The result will be like this and you can download the excel to find all the orga
 
 # Issues & Fixes
 
-1. You might notice that the loading bar is already appearing before you started running any tasks, Go to "Settings" and click on "Fix it" if you face this issue
-![image](https://user-images.githubusercontent.com/97327489/155925460-1fc24315-e5de-4734-aa8e-5a9fd83751f7.png)
+1. Large scopes should be tested locally, Heroku doesn't supply enough computing power since the application does not store any data and does the entire process without any database.
 
 
 *Please do create <a href='https://github.com/h33tlit/Jbin-website-scraper/issues'>issues</a> if you face any error while using the application*
