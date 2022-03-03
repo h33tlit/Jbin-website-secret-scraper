@@ -1,4 +1,4 @@
-# Jbin Website Secret Scraper V1.3 (Python)
+# Jbin Website Secret Scraper V1.4 (Python)
 
 
 Here is the online demo : <a href="https://jbin-scraper.herokuapp.com/">Jbin</a> ( This might crash because heroku doesn't supply much computing power, try it locally )
@@ -13,6 +13,7 @@ Jbin will gather all the URLs from the website and then it will try to expose th
 
 1. Directory bruteforce to get more URLs
 2. Custom wordlist
+3. Added realtime task monitoring
 
 # Third Party Components
 * Wayback API
