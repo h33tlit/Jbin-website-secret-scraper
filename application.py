@@ -280,7 +280,7 @@ def reports():
         count = re.findall('Empty', str(data))
 
         directory.append('%s,%d,%d' % (dirs, len(data), len(count)))
-    #######
+    ########
     for x in directory:
         y = x.split(',')
         alldata.append(y)
