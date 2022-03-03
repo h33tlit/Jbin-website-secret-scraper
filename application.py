@@ -22,21 +22,28 @@ basedomain = set()
 @app.route('/', methods=['POST', 'GET'])
 def scan():
     if request.method == 'POST':
-        global url
-        url = request.form["domain"]
-        basedomain.add(url)
-        regexselect = request.form["regex"]
-        th = Thread(target=task, args=(url,regexselect))
-        th.name = urlparse(url).hostname
-        th.start()
-        thr = []
-        finalthread = []
-        for thread in threading.enumerate():
-            thr.append(thread.name)
-            for domain in thr:
-                if urlparse(url).hostname in domain:
-                    finalthread.append(domain)
-        return render_template("home/scan-empty.html", count=threading.active_count(), threadcount=len(finalthread))
+
+        if 'http://' and 'https://' not in request.form["domain"]:
+            return "Error"
+        else:
+            global url
+            url = request.form["domain"]
+            basedomain.add(url)
+            regexselect = request.form["regex"]
+
+            th = Thread(target=task, args=(url,regexselect))
+            th.name = urlparse(url).hostname
+            th.start()
+            thr = []
+            finalthread = []
+            for thread in threading.enumerate():
+                thr.append(thread.name)
+                for domain in thr:
+                    if urlparse(url).hostname in domain:
+                        finalthread.append(domain)
+            return render_template("home/scan-empty.html", count=threading.active_count(), threadcount=len(finalthread))
+
+
 
     elif request.method == 'GET':
         thr = []
