@@ -153,11 +153,53 @@ a {
               <p class="card-description">This will first gather all the URLs from the website and then try to access their unique links and js scripts to expose secret information.<br/><br/>
                   <small>If you want the tool to scan all the existing regexes then keep the <font color="red">'Regex/String'</font> field empty and only insert domain!</small>
               </p>
-              <form class="form-inline" method="POST" action="{{ url_for('scan') }}" enctype="multipart/form-data">
+              <form class="form-groups" method="POST" action="{{ url_for('scan') }}" enctype="multipart/form-data">
 
-                <label class="sr-only">Domain</label>
-                <input type="text" class="form-control mb-2 mr-sm-2" name="domain" placeholder="https://test.com">
-                <div class="input-group mb-2 mr-sm-2">
+                    <div class="form-check form-check-flat form-check-primary">
+                  <label class="form-check-label">
+                    <input type="checkbox" value="true" name="wayback" class="form-check-input"> Run Wayback (more time)
+                  </label>
+                </div>
+
+                  <div class="form-check form-check-flat form-check-primary">
+                  <label class="form-check-label">
+
+                    <input type="checkbox" value="10" name="power" class="form-check-input"> Low Power (less urls)
+                  </label>
+                </div>
+
+                  <div class="form-check form-check-flat form-check-primary">
+                  <label class="form-check-label">
+
+                    <input type="checkbox" value="1000" name="power" class="form-check-input"> High Power (more urls, more time)
+                  </label>
+                </div>
+
+
+                  <div class="form-check form-check-flat form-check-primary">
+                  <label class="form-check-label">
+
+                    <input type="checkbox" value="-1" name="reg" class="form-check-input"> All regex (more time)
+                  </label>
+                </div>
+
+                  <div class="form-check form-check-flat form-check-primary">
+                  <label class="form-check-label">
+
+                    <input type="checkbox" value="ture" name="wordlist" class="form-check-input"> Directory Bruteforce Mode (more time, might crash if too many)
+                  </label>
+                </div>
+
+
+                  <div class="input-group mb-2 mr-sm-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">Domain (eg: https://test.com )</div>
+
+                  <input type="text" class="form-control" name="domain"><br/>
+                  </div>
+                  </div>
+
+                  <div class="input-group mb-2 mr-sm-2">
                   <div class="input-group-prepend">
                     <div class="input-group-text">Regex/String</div>
 
