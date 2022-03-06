@@ -44,11 +44,11 @@ Url: https://peaceful-colden-270bad.netlify.app
 Now go to ```http://127.0.0.1:5000/``` where by default the application will be launched but if that port is in used you can run this ```flask run --host=127.0.0.1 --port=ANY PORT NUMBER```
 
 
-Enter your target domain and put your custom regex or string, You can run all the existing scans if you keep the Regex/String field empty.
-![image](https://user-images.githubusercontent.com/97327489/155925531-391b641f-0454-4004-93b6-46ac20b8b828.png)
+Enter your target domain and put your custom regex or string, You can run the tool as per your requirement. 
+<img width="1440" alt="Screenshot 2022-03-07 at 2 27 38 AM" src="https://user-images.githubusercontent.com/97327489/156936798-a6209d55-5195-4d10-b41f-993c624abe0c.png">
 
 
-Currently we are scraping these secrets by default if you keep the field empty for Regex/String:
+Currently we can scrape these secrets!
 
 ```
  Google Maps API 
@@ -92,7 +92,13 @@ Currently we are scraping these secrets by default if you keep the field empty f
 
 ```
 The result will be like this and you can download the excel to find all the organized links and secrets:
-![image](https://user-images.githubusercontent.com/97327489/155925624-88ff9f28-6fc9-40d0-9acd-faabfb4b7530.png)
+
+
+<img width="1440" alt="Screenshot 2022-03-07 at 2 32 05 AM" src="https://user-images.githubusercontent.com/97327489/156936992-c9dc961f-54be-4322-8b33-3c3d4b5d9c70.png">
+
+<img width="649" alt="Screenshot 2022-03-07 at 2 33 11 AM" src="https://user-images.githubusercontent.com/97327489/156937047-eddfc9c2-34dc-484f-8db4-0bfdfe8cae04.png">
+
+
 
 # Issues & Fixes
 
