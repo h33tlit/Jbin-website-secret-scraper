@@ -1,4 +1,11 @@
-# Jbin Website Secret Scraper V1.5 (Python)
+<h1 align="center">Jbin Website Secret Scraper V1.5 (Python) 🎖️</h1>
+<p>
+ <img src="https://img.shields.io/github/issues-raw/h33tlit/Jbin-website-secret-scraper?style=for-the-badge">
+ <img src="https://img.shields.io/github/stars/h33tlit/Jbin-website-secret-scraper?color=white&logo=github&style=for-the-badge">
+ <img src="https://img.shields.io/github/forks/h33tlit/Jbin-website-secret-scraper?color=white&logo=github&style=for-the-badge">
+ <img src="https://img.shields.io/github/commit-activity/m/h33tlit/Jbin-website-secret-scraper?style=for-the-badge">
+ <img src="https://img.shields.io/badge/Jbin Website Secret Scraper-Version%3A 1.5-green?style=for-the-badge">
+</p>
 
 
 Here is the online demo : <a href="https://jbin-scraper.herokuapp.com/">Jbin</a> ( This might crash because heroku doesn't supply much computing power, try it locally )
