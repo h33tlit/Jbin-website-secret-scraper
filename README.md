@@ -25,7 +25,7 @@ Required: Python-3.8.5, Flask
 
 1. Install flask ``` pip install Flask ```
 2. Install the requirements ```pip install -r requirements.txt```
-3. Now set the environment variables ```export FLASK_APP=wsgi.py``` and ```export FLASK_ENV=debug```
+3. Now set the environment variables ```export FLASK_APP=wsgi.py```
 4. Now you can just run the application ```flask run```
 
 [Note]: Make sure you verify that flask is installed ```flask --version```
