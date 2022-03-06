@@ -9,7 +9,7 @@ Jbin will gather all the URLs from the website and then it will try to expose th
 <img width="1345" alt="Screenshot 2022-03-01 at 3 59 35 AM" src="https://user-images.githubusercontent.com/97327489/156050326-48f38c29-1023-4e9a-b9db-ae7b4863c111.png">
 
 
-# New Features For V1.4?
+# New Features?
 
 1. Directory bruteforce to get more URLs
 2. Custom wordlist
