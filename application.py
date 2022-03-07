@@ -128,7 +128,7 @@ def task(url, regexselect, wayback, power, regnumber, getwordlist):
 
         for list in secondlayer:
             max += 1
-            if max < power:
+            if max < int(power):
                 try:
                     if 'http' in list:
                         scan = requests.get(list)
@@ -163,16 +163,10 @@ def task(url, regexselect, wayback, power, regnumber, getwordlist):
 
                 except:
                     return "Something went wrong!"
-            elif max == power:
+            elif max == int(power):
                 break
 
 
-
-        # goodurls = counter1
-        # badurls = counter2
-        # allurllist = len(combinedurls)
-        # dataformat = set(combinedurls)
-        # finalscrapinglinkcount = len(set(combinedurls))
 
         google_api = """AIza[0-9A-Za-z\\-_]{35}"""
         artifactory = """(?:\s|=|:|"|^)AKC[a-zA-Z0-9]{10,}"""
