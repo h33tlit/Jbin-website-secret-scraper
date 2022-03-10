@@ -26,7 +26,7 @@ basedomain = set()
 def scan():
     if request.method == 'POST':
 
-        if 'http://' and 'https://' not in request.form["domain"]:
+        if 'http' not in request.form["domain"]:
             return "Error"
         else:
             global url
