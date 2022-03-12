@@ -52,7 +52,10 @@ Now go to ```http://127.0.0.1:5000/``` where by default the application will be 
 
 
 Enter your target domain and put your custom regex or string, You can run the tool as per your requirement. 
-<img width="1440" alt="Screenshot 2022-03-07 at 2 27 38 AM" src="https://user-images.githubusercontent.com/97327489/156936798-a6209d55-5195-4d10-b41f-993c624abe0c.png">
+
+<img width="1439" alt="Screenshot 2022-03-12 at 6 17 48 PM" src="https://user-images.githubusercontent.com/97327489/158014080-eab15e17-a7ac-4433-a609-4cf97a85b9fa.png">
+
+
 
 
 Currently we can scrape these secrets!
