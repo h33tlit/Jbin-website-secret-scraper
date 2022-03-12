@@ -114,6 +114,10 @@ Demo Excel report:
 
 1. Large scopes should be tested locally, Heroku doesn't supply enough computing power since the application does not store any data and does the entire process without any database.
 
+# Ongoing Development
+
+1. Making the script asynchronous to make it even more faster.
+
 <br/>
 <br/>
 *Please do create <a href='https://github.com/h33tlit/Jbin-website-scraper/issues'>issues</a> if you face any error while using the application*
