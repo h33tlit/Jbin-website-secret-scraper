@@ -119,7 +119,7 @@ Demo Excel report:
 
 # Ongoing Development
 
-1. Making the script asynchronous to make it even more faster.
+1. Making the script more faster
 
 <br/>
 <br/>
