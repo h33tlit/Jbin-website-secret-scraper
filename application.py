@@ -26,7 +26,7 @@ basedomain = set()
 def scan():
     if request.method == 'POST':
 
-        if 'http://' and 'https://' not in request.form["domain"]:
+        if 'http' not in request.form["domain"]:
             return "Error"
         else:
             global url
@@ -81,7 +81,7 @@ def task(url, regexselect, wayback, power, regnumber, getwordlist):
         combinedurls = set()
         page = requests.get(url)
         combinedurls.add(url)
-        soup = BeautifulSoup(page.text, 'html.parser')
+        soup = BeautifulSoup(page.text, 'lxml')
         domain_name = urlparse(url).hostname
 
         save = []
@@ -89,35 +89,43 @@ def task(url, regexselect, wayback, power, regnumber, getwordlist):
 
 
         for a_tag in soup.findAll("a"):
-            href = a_tag.attrs.get("href")
-            if href == "" or href is None:
-                # href empty tag
-                continue
-            # join the URL if it's relative (not absolute link)
-            href = urljoin(url, href)
-            if domain_name in href:
-                if 'http' in href:
-                    save.append(href)
-                    combinedurls.add(href)
-
-        for intilink in save:
-            if 'http' in intilink:
-                page3 = requests.get(intilink)
-                soup2 = BeautifulSoup(page3.text, 'html.parser')
-
-
-
-            for a_tag2 in soup2.findAll("a"):
-                href2 = a_tag2.attrs.get("href")
-                if href2 == "" or href2 is None:
+            try:
+                href = a_tag.attrs.get("href")
+                if href == "" or href is None:
                     # href empty tag
                     continue
                 # join the URL if it's relative (not absolute link)
-                href2 = urljoin(url, href2)
-                if domain_name in href2:
-                    if 'http' in href2:
-                        secondlayer.add(href2)
-                        combinedurls.add(href2)
+                href = urljoin(url, href)
+                if domain_name in href:
+                    if 'http' in href:
+                        save.append(href)
+                        combinedurls.add(href)
+            except:
+                pass
+
+        for intilink in save:
+            try:
+                if 'http' in intilink:
+                    page3 = requests.get(intilink)
+                    soup2 = BeautifulSoup(page3.text, 'lxml')
+            except:
+                pass
+
+
+            for a_tag2 in soup2.findAll("a"):
+                try:
+                    href2 = a_tag2.attrs.get("href")
+                    if href2 == "" or href2 is None:
+                        # href empty tag
+                        continue
+                    # join the URL if it's relative (not absolute link)
+                    href2 = urljoin(url, href2)
+                    if domain_name in href2:
+                        if 'http' in href2:
+                            secondlayer.add(href2)
+                            combinedurls.add(href2)
+                except:
+                    pass
 
 
 
@@ -128,14 +136,14 @@ def task(url, regexselect, wayback, power, regnumber, getwordlist):
 
         for list in secondlayer:
             max += 1
-            if max < power:
+            if max < int(power):
                 try:
                     if 'http' in list:
                         scan = requests.get(list)
 
                         combinedurls.add(list)
 
-                        soup = BeautifulSoup(scan.text, "html.parser")
+                        soup = BeautifulSoup(scan.text, "lxml")
                         # going into each internal weblinks and getting the js script links
                         src = [sc["src"] for sc in soup.select("script[src]")]
 
@@ -163,7 +171,7 @@ def task(url, regexselect, wayback, power, regnumber, getwordlist):
 
                 except:
                     return "Something went wrong!"
-            elif max == power:
+            elif max == int(power):
                 break
 
 
@@ -260,27 +268,32 @@ def task(url, regexselect, wayback, power, regnumber, getwordlist):
 
         finaldata = []
 
+
         for linkz in combinedurls:
+            try:
+                if 'http' in linkz:
 
-            if 'http' in linkz:
 
-                access = requests.get(linkz).text
 
-                if len(regexselect) < 1:
-                    for allregex in regex[0:int(regnumber)]:
-                        reg = re.findall(str(allregex), access)
+                    access = requests.get(linkz).text
+
+                    if len(regexselect) < 1:
+                        for allregex in regex[0:int(regnumber)]:
+                            reg = re.findall(str(allregex), access)
+                            if len(reg) < 1:
+                                notfound = 'Empty'
+                                finaldata.append("%s,%s" % (linkz, notfound))
+                            else:
+                                finaldata.append("%s,%s" % (linkz, reg))
+                    elif len(regexselect) > 1:
+                        reg = re.findall(str(regexselect), access)
                         if len(reg) < 1:
                             notfound = 'Empty'
                             finaldata.append("%s,%s" % (linkz, notfound))
                         else:
                             finaldata.append("%s,%s" % (linkz, reg))
-                elif len(regexselect) > 1:
-                    reg = re.findall(str(regexselect), access)
-                    if len(reg) < 1:
-                        notfound = 'Empty'
-                        finaldata.append("%s,%s" % (linkz, notfound))
-                    else:
-                        finaldata.append("%s,%s" % (linkz, reg))
+            except:
+                pass
 
         finalurls = []
         for datanow in set(finaldata):
