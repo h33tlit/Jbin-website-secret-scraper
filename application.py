@@ -79,7 +79,7 @@ def scan():
 def task(url, regexselect, wayback, power, regnumber, getwordlist):
         global combinedurls
         combinedurls = set()
-        page = requests.get(url)
+        page = requests.get(url, allow_redirects=True)
         combinedurls.add(url)
         soup = BeautifulSoup(page.text, 'lxml')
         domain_name = urlparse(url).hostname
