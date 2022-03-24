@@ -176,12 +176,6 @@ def task(url, regexselect, wayback, power, regnumber, getwordlist):
 
 
 
-        # goodurls = counter1
-        # badurls = counter2
-        # allurllist = len(combinedurls)
-        # dataformat = set(combinedurls)
-        # finalscrapinglinkcount = len(set(combinedurls))
-
         google_api = """AIza[0-9A-Za-z\\-_]{35}"""
         artifactory = """(?:\s|=|:|"|^)AKC[a-zA-Z0-9]{10,}"""
         artifactorypass = """(?:\s|=|:|"|^)AP[\dABCDEF][a-zA-Z0-9]{8,}"""
