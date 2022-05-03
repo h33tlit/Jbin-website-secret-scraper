@@ -1,69 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
+<head>
+    <title>JBin - {% block title %}{% endblock %}</title>
+
+    <!-- Meta -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>
-       JBin - {% block title %}{% endblock %}
-    </title>
+    <meta name="description" content="Jbin">
+    <meta name="author" content="Jbin">
+    <link rel="shortcut icon" href="favicon.ico">
 
-    <link rel="stylesheet" href="/static/assets/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="/static/assets/vendors/css/vendor.bundle.base.css">
+    <!-- FontAwesome JS-->
+    <script defer src="/static/assets/plugins/fontawesome/js/all.min.js"></script>
+	{% block plugin_stylesheets %}{% endblock plugin_stylesheets %}
+    <!-- App CSS -->
+    <link id="theme-style" rel="stylesheet" href="/static/assets/css/portal.css">
+	{% block stylesheets %}{% endblock stylesheets %}
 
-    <!-- Specific Plugin CSS goes HERE -->
-    {% block plugin_stylesheets %}{% endblock plugin_stylesheets %}
 
-    <link rel="stylesheet" href="/static/assets/css/style.css">
 
-    <!-- Specific CSS goes HERE -->
-    {% block stylesheets %}{% endblock stylesheets %}
+          {% block content %}{% endblock content %}
 
-  </head>
-  <body>
-    <div class="container-scroller">
+	{% block plugin_javascripts %}{% endblock plugin_javascripts %}
+    <!-- Javascript -->
+    <script src="/static/assets/plugins/popper.min.js"></script>
+    <script src="/static/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 
-      {% include 'includes/sidebar.html' %}
+    <!-- Charts JS -->
+    <script src="/static/assets/plugins/chart.js/chart.min.js"></script>
+    <script src="/static/assets/js/index-charts.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
-      <!-- partial -->
-      <div class="container-fluid page-body-wrapper">
-
-        <!-- partial:partials/_navbar.html -->
-        {% include 'includes/navigation.html' %}
-
-        <!-- partial -->
-        <div class="main-panel">
-
-          {% block content %}{% endblock content %}  
-
-          {% include 'includes/footer.html' %}
-
-        </div>
-        <!-- main-panel ends -->
-
-      </div>
-      <!-- page-body-wrapper ends -->
-      
-    </div>
-    <!-- container-scroller -->
-    <!-- plugins:js -->
-    <script src="/static/assets/vendors/js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-
-    <!-- Specific Plugin JS goes HERE  -->
-    {% block plugin_javascripts %}{% endblock plugin_javascripts %}
-
-    <!-- inject:js -->
-    <script src="/static/assets/js/off-canvas.js"></script>
-    <script src="/static/assets/js/hoverable-collapse.js"></script>
-    <script src="/static/assets/js/misc.js"></script>
-    <script src="/static/assets/js/settings.js"></script>
-    <script src="/static/assets/js/todolist.js"></script>
-    <!-- endinject -->
-
-    <!-- Specific Page JS goes HERE  -->
+    <!-- Page Specific JS -->
+    <script src="/static/assets/js/app.js"></script>
     {% block javascripts %}{% endblock javascripts %}
 
-  </body>
 </html>
+
