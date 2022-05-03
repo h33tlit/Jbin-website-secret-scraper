@@ -14,6 +14,8 @@ import glob
 import pandas as pd
 import json
 import time
+import httpx
+
 
 app = Flask(__name__)
 os.chdir("reports")
@@ -79,7 +81,7 @@ def scan():
 def task(url, regexselect, wayback, power, regnumber, getwordlist):
         global combinedurls
         combinedurls = set()
-        page = requests.get(url, allow_redirects=True)
+        page = httpx.get(url)
         combinedurls.add(url)
         soup = BeautifulSoup(page.text, 'lxml')
         domain_name = urlparse(url).hostname
@@ -106,7 +108,7 @@ def task(url, regexselect, wayback, power, regnumber, getwordlist):
         for intilink in save:
             try:
                 if 'http' in intilink:
-                    page3 = requests.get(intilink)
+                    page3 = httpx.get(intilink)
                     soup2 = BeautifulSoup(page3.text, 'lxml')
             except:
                 pass
@@ -139,7 +141,7 @@ def task(url, regexselect, wayback, power, regnumber, getwordlist):
             if max < int(power):
                 try:
                     if 'http' in list:
-                        scan = requests.get(list)
+                        scan = httpx.get(list)
 
                         combinedurls.add(list)
 
@@ -237,7 +239,7 @@ def task(url, regexselect, wayback, power, regnumber, getwordlist):
 
             for list in f.readlines():
 
-                resp = requests.get("https://" + str(domain) + "/" + str(list)).status_code
+                resp = httpx.get("https://" + str(domain) + "/" + str(list)).status_code
                 if resp == 200:
                     combinedurls.add("https://" + str(domain) + "/" + str(list))
                 else:
@@ -250,7 +252,7 @@ def task(url, regexselect, wayback, power, regnumber, getwordlist):
 
         if str(wayback) == 'true':
             #Taking extra URLs from archive.org
-            getwayback = requests.get("http://web.archive.org/cdx/search/cdx?url=" + domain_name + "*&output=text&fl=original&collapse=urlkey&filter=statuscode%3A200")
+            getwayback = httpx.get("http://web.archive.org/cdx/search/cdx?url=" + domain_name + "*&output=text&fl=original&collapse=urlkey&filter=statuscode%3A200")
             for d in getwayback.text.split('\n'):
                 combinedurls.add(d)
             #######################################################################
@@ -269,7 +271,7 @@ def task(url, regexselect, wayback, power, regnumber, getwordlist):
 
 
 
-                    access = requests.get(linkz).text
+                    access = httpx.get(linkz).text
 
                     if len(regexselect) < 1:
                         for allregex in regex[0:int(regnumber)]:
