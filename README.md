@@ -52,9 +52,6 @@ Enter your target domain and put your custom regex or string, You can run the to
 ![image](https://user-images.githubusercontent.com/97327489/171360736-3dcb2092-da40-43d6-bdcd-4df8d189794a.png)
 
 
-![image](https://user-images.githubusercontent.com/97327489/171360950-02f7d8b8-484c-4c1b-8e79-dbb978cd46d7.png)
-
-
 [Note: Becareful of regex as wrong one can crash the script]
 
 ![image](https://user-images.githubusercontent.com/97327489/171361949-d6260453-3b2c-469b-b6e6-fb60749cdb2f.png)
