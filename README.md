@@ -69,7 +69,7 @@ Enter your target domain and put your custom regex or string, You can run the to
 <br/>
 <br/>
 
-*If you are fine with the old version you can always download it from the package section*
+*If you are fine with the old version you can always download it from the release section*
 
 *Please do create <a href='https://github.com/h33tlit/Jbin-website-scraper/issues'>issues</a> if you face any error while using the application*
 
