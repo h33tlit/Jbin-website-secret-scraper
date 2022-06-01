@@ -1,4 +1,4 @@
-<h1 align="center"><img src="https://img.shields.io/badge/Jbin Website Secret Scraper-Version%3A 1.5-red?style=for-the-badge"> 🎖️</h1>
+<h1 align="center"><img src="https://img.shields.io/badge/Jbin Website Secret Scraper-Version%3A 2.0-red?style=for-the-badge"> 🎖️</h1>
 <p>
  <img src="https://img.shields.io/github/issues-raw/h33tlit/Jbin-website-secret-scraper?style=for-the-badge">
  <img src="https://img.shields.io/github/stars/h33tlit/Jbin-website-secret-scraper?color=white&logo=github&style=for-the-badge">
