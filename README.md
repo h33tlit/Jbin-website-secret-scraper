@@ -8,20 +8,13 @@
 </p>
 
 
-Here is the online demo : <a href="https://jbin-scraper.herokuapp.com/">Jbin</a> ( This might crash because heroku doesn't supply much computing power, try it locally )
-
 Jbin will gather all the URLs from the website and then it will try to expose the secret data from them. It collects both URLs and JS links to scrape secrets out of it. Also if you are looking for a specific string in a page or want to run custom regex then you can do that too now with the new release, It also provides you with a informative excel report.
 
 # How does it work?
-<img width="1345" alt="Screenshot 2022-03-01 at 3 59 35 AM" src="https://user-images.githubusercontent.com/97327489/156050326-48f38c29-1023-4e9a-b9db-ae7b4863c111.png">
+![image](https://user-images.githubusercontent.com/97327489/171358851-01838996-51f8-466d-9fca-8bff824879fa.png)
 
 
-# New Features?
 
-1. Directory bruteforce to get more URLs
-2. Custom wordlist
-3. Added realtime task monitoring
-4. Added the option to reduce power
 
 # Third Party Components
 * Wayback API
@@ -33,7 +26,7 @@ Required: Python-3.8.5, Flask
 
 1. Install flask ``` pip install Flask ```
 2. Install the requirements ```pip install -r requirements.txt```
-3. Now set the environment variables ```export FLASK_APP=wsgi.py```
+3. Now set the environment variables ```export FLASK_APP=app.py```
 4. Now you can just run the application ```flask run```
 
 [Note]: Make sure you verify that flask is installed ```flask --version```
@@ -53,75 +46,33 @@ Now go to ```http://127.0.0.1:5000/``` where by default the application will be 
 
 Enter your target domain and put your custom regex or string, You can run the tool as per your requirement. 
 
+![image](https://user-images.githubusercontent.com/97327489/171360578-dd5d8e57-d17f-4594-a653-fedf4c69c161.png)
 
 
-<img width="1440" alt="Screenshot 2022-03-12 at 6 21 10 PM" src="https://user-images.githubusercontent.com/97327489/158014178-54534cbc-302b-49a0-806e-790b25499cd4.png">
+![image](https://user-images.githubusercontent.com/97327489/171360736-3dcb2092-da40-43d6-bdcd-4df8d189794a.png)
 
 
-Currently we can scrape these secrets!
-
-```
- Google Maps API 
- Artifactory API 
- Artifactory Pass 
- Auth Tokens 
- AWS Access Keys 
- AWS MWS Auth Token 
- Base 64 
- Basic Auth Credentials 
- Cloudanary Basic Auth Tokens 
- Facebook Access Tokens 
- Facebook Oauth Tokens 
- Github Secrets 
- Google Cloud API 
- Google Oauth Tokens 
- Youtube Oauth Tokens 
- Heroku API Keys 
- IPV4 
- IPV6 
- URL Without http 
- URL With http 
- Generic API 
- RSA Private Keys 
- PGP Private Keys 
- Mailchamp API key 
- Mailgun API key 
- Picatic API 
- Slack Token 
- Slack Webhook 
- Stripe API Keys 
- Square Access Token 
- Square Oauth Secret 
- Twilio API key 
- Twitter Client ID 
- Twitter Oauth 
- Twitter Secret Keys 
- Vault Token 
- Firebase Secrets 
- Paypal Braintree Tokens 
-
-```
-The result will be like this and you can download the excel to find all the organized links and secrets:
+![image](https://user-images.githubusercontent.com/97327489/171360950-02f7d8b8-484c-4c1b-8e79-dbb978cd46d7.png)
 
 
-<img width="1440" alt="Screenshot 2022-03-07 at 2 32 05 AM" src="https://user-images.githubusercontent.com/97327489/156936992-c9dc961f-54be-4322-8b33-3c3d4b5d9c70.png">
+[Note: Becareful of regex as wrong one can crash the script]
 
+![image](https://user-images.githubusercontent.com/97327489/171361949-d6260453-3b2c-469b-b6e6-fb60749cdb2f.png)
 
-Demo Excel report:
-
-<img width="649" alt="Screenshot 2022-03-07 at 2 33 11 AM" src="https://user-images.githubusercontent.com/97327489/156937047-eddfc9c2-34dc-484f-8db4-0bfdfe8cae04.png">
+![image](https://user-images.githubusercontent.com/97327489/171362204-4f478c7b-524c-4889-b66a-ed7c25ccebb1.png)
 
 
 
-# Issues & Fixes
-
-1. Large scopes should be tested locally, Heroku doesn't supply enough computing power since the application does not store any data and does the entire process without any database.
-
-# Ongoing Development
-
-1. Making the script more faster
 
 <br/>
 <br/>
+
+<br/>
+<br/>
+<br/>
+<br/>
+
+*If you are fine with the old version you can always download it from the package section*
+
 *Please do create <a href='https://github.com/h33tlit/Jbin-website-scraper/issues'>issues</a> if you face any error while using the application*
 
