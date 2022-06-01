@@ -29,6 +29,12 @@ Required: Python-3.8.5, Flask
 3. Now set the environment variables ```export FLASK_APP=app.py```
 4. Now you can just run the application ```flask run```
 
+# Alternative Faster Version
+
+Want Jbin to work asynchronously?
+
+Follow this article - <a href="https://jubaeralnazi.com/how-to-make-your-flask-app-asynchronous-with-gunicorn">Using gunicorn you can make the whole application asynchronous!</a> 
+
 [Note]: Make sure you verify that flask is installed ```flask --version```
 
 
@@ -69,7 +75,7 @@ Enter your target domain and put your custom regex or string, You can run the to
 <br/>
 <br/>
 
-<a href="https://jubaeralnazi.com/how-to-make-your-flask-app-asynchronous-with-gunicorn">Using gunicorn you can make the whole application asynchronous! [Must Read]</a> 
+
 
 
 *If you are fine with the old version you can always download it from the release section*
