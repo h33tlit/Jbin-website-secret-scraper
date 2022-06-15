@@ -43,7 +43,7 @@ Follow this article - <a href="https://jubaeralnazi.com/how-to-make-your-flask-a
 
 Url: https://peaceful-colden-270bad.netlify.app
 
-*Copy the url and put this as a target in the tool, Select AWS Keys/IPV4/IPV6 from the options and verify it's capabilities*
+*Copy the url and put this as a target in the tool, Put AWS Keys/IPV4/IPV6 python regexes to verify it's capabilities*
 
 # Usage
 
