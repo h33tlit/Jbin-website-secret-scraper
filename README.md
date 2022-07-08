@@ -8,7 +8,7 @@
 </p>
 
 
-Jbin will gather all the URLs from the website and then it will try to expose the secret data from them. It collects both URLs and JS links to scrape secrets out of it. Also if you are looking for a specific string in a page or want to run custom regex then you can do that too now with the new release, It also provides you with a informative excel report.
+Jbin will gather all the URLs from the website and then it will try to expose the secret data from them. It collects both URLs and JS links to scrape secrets out of it. Also if you are looking for a specific string in a page or want to run custom regex then you can do that too now with the new release, It also provides you with a informative report.
 
 # How does it work?
 ![image](https://user-images.githubusercontent.com/97327489/171358851-01838996-51f8-466d-9fca-8bff824879fa.png)
